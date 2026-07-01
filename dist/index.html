@@ -58,7 +58,25 @@
     <div id="product-list" class="product-list container"></div>
 
     <script id="template-cart-product" type="text/x-handlebars-template">
-      
+        <li class="cart__product">
+          <div class="cart__product-header">
+            <span class="cart__product-amount">{{ amount }}</span>
+            <span class="cart__product-name">{{ name }}</span>
+            <span class="cart__product-price">${{ price }}</span>
+              <div class="cart__product-actions">
+                <a href="#edit"><i class="fas fa-pencil-alt"></i></a>
+                <a href="#remove"><i class="fas fa-trash-alt"></i></a>
+              </div>
+          </div>
+            <ul class="cart__product-details">
+              {{#each params}}
+          <li>
+            <span class="cart__product-details-label">{{ label }}:</span>
+            <span class="cart__product-details-value">{{ joinValues options }}</span>
+          </li>
+              {{/each}}
+            </ul>
+        </li>
     </script>
     <script id="template-menu-product" type="text/x-handlebars-template">
       <article class="product"> <!-- product -->
