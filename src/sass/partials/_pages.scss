@@ -1,0 +1,32 @@
+#pages {
+  > section {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
+
+.main-nav {
+  position: absolute;
+  top: ($base-size * 1.5);
+  right: 330px;
+
+  a {
+    display: inline-block;
+    margin-left: $base-size;
+    color: $color-light;
+    font-family: $font-header;
+    font-size: ($base-size * 1.5);
+    font-weight: $font-semibold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: $transition;
+
+    &:hover,
+    &.active {
+      color: $color-main;
+    }
+  }
+}
