@@ -52,3 +52,5 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
 Handlebars.registerHelper('joinValues', function(input) {
   return Object.values(input).join(', ');
 });
+
+export default utils;
