@@ -12,6 +12,8 @@ const port = process.env.PORT || 3131;
 server.use(middlewares);
 server.use(router);
 
-server.listen(port);
+server.listen(port, '0.0.0.0', () => {
+  console.log(`Server running on port ${port}`);
+});
 
 export default server;

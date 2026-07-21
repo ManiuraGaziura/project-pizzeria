@@ -1,1 +1,5 @@
 run = "node server.mjs"
+
+[deployment]
+build = "npm install && npm run build"
+run = "node server.mjs"
