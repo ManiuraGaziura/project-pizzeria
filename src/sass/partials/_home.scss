@@ -1,0 +1,256 @@
+.home-wrapper {
+  margin: ($base-size * 3.5) auto;
+  padding: ($base-size * 6) ($base-size * 4);
+  background: $color-light;
+  border-bottom: 1px solid lighten($color-dark, 70%);
+  border-radius: $radius;
+}
+
+.home__tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: ($base-size * .5);
+}
+
+.home__tile {
+  position: relative;
+  min-height: 120px;
+  overflow: hidden;
+  background-position: center;
+  background-size: cover;
+  border-radius: $radius;
+  color: $color-light;
+  text-decoration: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba($color-dark, .55);
+    transition: $transition;
+  }
+
+  &:hover::before {
+    background: rgba($color-dark, .7);
+  }
+
+  &--order {
+    background-image: url('../images/homepage/pizza-1.jpg');
+  }
+
+  &--booking {
+    background-image: url('../images/homepage/pizza-2.jpg');
+  }
+}
+
+.home__tile-content {
+  @include center();
+  width: 100%;
+  padding: 0 ($base-size * 2);
+  text-align: center;
+
+  strong,
+  span {
+    display: block;
+    transition: $transition;
+  }
+
+  strong {
+    font-family: $font-header;
+    font-size: ($base-size * 2.25);
+    font-weight: $font-semibold;
+    line-height: 1.2;
+    text-transform: uppercase;
+    transform: translateY(12px);
+  }
+
+  span {
+    margin-top: ($base-size * .5);
+    font-size: $base-size;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+.home__tile:hover .home__tile-content {
+  strong {
+    transform: translateY(0);
+  }
+
+  span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home__opening-hours {
+  grid-column: 1 / -1;
+  padding: ($base-size * 2.4) $base-size;
+  background: $color-main;
+  border-radius: $radius;
+  color: $color-light;
+  text-align: center;
+
+  strong,
+  span {
+    display: block;
+  }
+
+  strong {
+    font-family: $font-header;
+    font-size: ($base-size * 2.25);
+    font-weight: $font-semibold;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  span {
+    margin-top: ($base-size * .6);
+    font-size: $base-size;
+    text-transform: uppercase;
+  }
+}
+
+.home__reviews {
+  margin: ($base-size * 6) 0 ($base-size * 7);
+}
+
+.home__carousel {
+  padding-bottom: ($base-size * 3);
+}
+
+.home__review {
+  @include flex(row, center, space-between);
+  width: 100%;
+  min-height: 210px;
+
+  img {
+    width: 34%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: $radius;
+    filter: grayscale(100%);
+  }
+}
+
+.home__review-text {
+  width: 62%;
+  padding: 0 ($base-size * 2);
+
+  h3 {
+    margin: 0 0 $base-size;
+    font-size: ($base-size * 1.2);
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0 0 ($base-size * 1.5);
+  }
+
+  cite {
+    font-style: italic;
+  }
+}
+
+.home__carousel .flickity-page-dots {
+  bottom: 0;
+}
+
+.home__carousel .flickity-page-dots .dot {
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+}
+
+.home__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $base-size;
+}
+
+.home__gallery-item {
+  position: relative;
+  display: block;
+  height: 190px;
+  overflow: hidden;
+  border-radius: $radius;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: $transition;
+  }
+
+  &:hover img {
+    transform: scale(1.04);
+  }
+}
+
+.home__gallery-overlay {
+  @include flex(row, center, center);
+  position: absolute;
+  inset: 0;
+  gap: ($base-size * 1.5);
+  background: rgba($color-dark, .55);
+  opacity: 0;
+  transition: $transition;
+
+  i {
+    color: $color-light;
+    font-size: ($base-size * 2.2);
+    transition: $transition;
+
+    &:hover {
+      color: $color-main;
+      transform: scale(1.15);
+    }
+  }
+}
+
+.home__gallery-item:hover .home__gallery-overlay {
+  opacity: 1;
+}
+
+.home__instagram {
+  display: inline-block;
+  margin-top: ($base-size * 2.5);
+  color: $color-main;
+  transition: $transition;
+
+  &:hover {
+    color: darken($color-main, 12%);
+  }
+}
+
+@media (max-width: 620px) {
+  .home-wrapper {
+    padding: ($base-size * 3) ($base-size * 2);
+  }
+
+  .home__tiles,
+  .home__gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .home__opening-hours {
+    grid-column: auto;
+  }
+
+  .home__review {
+    flex-direction: column;
+
+    img,
+    .home__review-text {
+      width: 100%;
+    }
+
+    .home__review-text {
+      padding: ($base-size * 2) 0 0;
+    }
+  }
+
+  .home__gallery-item {
+    height: 260px;
+  }
+}

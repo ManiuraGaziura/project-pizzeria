@@ -7,6 +7,7 @@ import {
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
 const app = {
   initData: function() {
@@ -58,6 +59,7 @@ const app = {
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
+    thisApp.pageLinks = document.querySelectorAll(select.nav.pageLinks);
 
     const idFromHash = window.location.hash.replace('#/', '');
 
@@ -72,7 +74,7 @@ const app = {
 
     thisApp.activatePage(pageMatchingHash);
 
-    for (let link of thisApp.navLinks) {
+    for (let link of thisApp.pageLinks) {
       link.addEventListener('click', function(event) {
         const clickedElement = this;
         event.preventDefault();
@@ -100,6 +102,14 @@ const app = {
     }
   },
 
+
+  initHome: function() {
+    const thisApp = this;
+
+    const homeContainer = document.querySelector(select.containerOf.home);
+    thisApp.home = new Home(homeContainer);
+  },
+
   initBooking: function() {
     const thisApp = this;
 
@@ -114,6 +124,7 @@ const app = {
     console.log('thisApp:', thisApp);
     console.log('settings:', settings);
 
+    thisApp.initHome();
     thisApp.initPages();
     thisApp.initData();
     thisApp.initCart();

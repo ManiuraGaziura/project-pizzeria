@@ -9,6 +9,7 @@
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -21,6 +22,7 @@
           <h2 class="logo__subtitle">the best homemade Italian food</h2>
         </div>
         <div class="main-nav">
+          <a href="#home">Home</a>
           <a href="#order">Order</a>
           <a href="#booking">Booking</a>
         </div>
@@ -62,6 +64,10 @@
   </header>
 
     <div id="pages">
+      <section id="home" class="active">
+        <div class="home-wrapper container"></div>
+      </section>
+
       <section id="order">
         <div id="product-list" class="product-list container"></div>
       </section>
@@ -175,6 +181,109 @@
       </article> <!-- .product -->
     </script>
 
+<script id="template-home-widget" type="text/x-handlebars-template">
+  <div class="home">
+    <div class="home__tiles">
+      <a class="home__tile home__tile--order home__nav-link" href="#order">
+        <span class="home__tile-content">
+          <strong>Order online</strong>
+          <span>Delicious food delivered to your door</span>
+        </span>
+      </a>
+
+      <a class="home__tile home__tile--booking home__nav-link" href="#booking">
+        <span class="home__tile-content">
+          <strong>Book a table</strong>
+          <span>Book your favorite table now</span>
+        </span>
+      </a>
+
+      <div class="home__opening-hours">
+        <strong>Opening hours:</strong>
+        <span>Tue-Sun, 12PM - 12AM</span>
+      </div>
+    </div>
+
+    <div class="home__reviews">
+      <div class="home__carousel">
+        <article class="home__review">
+          <img src="images/homepage/pizza-3.jpg" alt="Customers enjoying a meal in the restaurant">
+          <div class="home__review-text">
+            <h3>Amazing service!</h3>
+            <p>Everything was fresh, delicious and served with a smile. We will definitely come back for another pizza night.</p>
+            <cite>- Margaret Osborne</cite>
+          </div>
+        </article>
+
+        <article class="home__review">
+          <img src="images/homepage/pizza-3.jpg" alt="Customers enjoying a meal in the restaurant">
+          <div class="home__review-text">
+            <h3>Perfect Italian evening!</h3>
+            <p>Great atmosphere, friendly staff and one of the best pizzas we have tried. A lovely place for dinner with friends.</p>
+            <cite>- Laura Williams</cite>
+          </div>
+        </article>
+
+        <article class="home__review">
+          <img src="images/homepage/pizza-3.jpg" alt="Customers enjoying a meal in the restaurant">
+          <div class="home__review-text">
+            <h3>We loved it!</h3>
+            <p>The ingredients tasted fantastic and the whole visit was relaxed from start to finish. Highly recommended.</p>
+            <cite>- Michael Turner</cite>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="home__gallery">
+      <a class="home__gallery-item" href="#gallery-1">
+        <img src="images/homepage/pizza-4.jpg" alt="Restaurant dish served at a table">
+        <span class="home__gallery-overlay">
+          <i class="fas fa-heart" aria-hidden="true"></i>
+          <i class="fas fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </a>
+      <a class="home__gallery-item" href="#gallery-2">
+        <img src="images/homepage/pizza-5.jpg" alt="Fresh Italian dish with vegetables">
+        <span class="home__gallery-overlay">
+          <i class="fas fa-heart" aria-hidden="true"></i>
+          <i class="fas fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </a>
+      <a class="home__gallery-item" href="#gallery-3">
+        <img src="images/homepage/pizza-6.jpg" alt="Pizza cut into slices">
+        <span class="home__gallery-overlay">
+          <i class="fas fa-heart" aria-hidden="true"></i>
+          <i class="fas fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </a>
+      <a class="home__gallery-item" href="#gallery-4">
+        <img src="images/homepage/pizza-7.jpg" alt="Open sign">
+        <span class="home__gallery-overlay">
+          <i class="fas fa-heart" aria-hidden="true"></i>
+          <i class="fas fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </a>
+      <a class="home__gallery-item" href="#gallery-5">
+        <img src="images/homepage/pizza-8.jpg" alt="Pizza dough being prepared">
+        <span class="home__gallery-overlay">
+          <i class="fas fa-heart" aria-hidden="true"></i>
+          <i class="fas fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </a>
+      <a class="home__gallery-item" href="#gallery-6">
+        <img src="images/homepage/pizza-9.jpg" alt="Restaurant entrance with open sign">
+        <span class="home__gallery-overlay">
+          <i class="fas fa-heart" aria-hidden="true"></i>
+          <i class="fas fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </a>
+    </div>
+
+    <a class="home__instagram" href="https://www.instagram.com/">View more on Instagram</a>
+  </div>
+</script>
+
 <script id="template-booking-widget" type="text/x-handlebars-template">
   <div class="booking-widget">
     <h2 class="page__title no-spacing">Book a table</h2>
@@ -263,6 +372,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
